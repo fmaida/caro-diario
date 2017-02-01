@@ -1,0 +1,2 @@
+from .diario import Diario
+
