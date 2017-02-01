@@ -1,3 +1,8 @@
+# Caro diario
+
+Un programma in miniatura scritto in Python per gestire i vostri appunti 
+e per organizzare i pensieri.
+
 ## A cosa serve il programma
 
 Avevo bisogno di un programmino scemo che mi permettesse da riga di 
@@ -35,8 +40,7 @@ ln -s <percorso al file __main__.py> /usr/local/bin/diario
 Ad esempio nel mio specifico caso questo comando diventa:
 
 ~~~~sh
-ln -s ~/Documents/Progetti/Python/caro-diario/__main__.py 
-/usr/local/bin/diario
+ln -s ~/Documents/Progetti/Python/caro-diario/__main__.py /usr/local/bin/diario
 ~~~~
 
 Se vi stancate del programma e decidete di voler cancellare il symlink, 
