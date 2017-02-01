@@ -34,13 +34,13 @@ di creare un symlink sul vostro computer.
 Dal vostro terminale digitate il comando:
 
 ````sh
-ln -s <percorso al file __main__.py> /usr/local/bin/diario
+$ ln -s <percorso al file __main__.py> /usr/local/bin/diario
 ````
 
 Ad esempio nel mio specifico caso questo comando diventa:
 
 ````sh
-ln -s ~/Documents/Progetti/Python/caro-diario/__main__.py /usr/local/bin/diario
+$ ln -s ~/Documents/Progetti/Python/caro-diario/__main__.py /usr/local/bin/diario
 ````
 
 Se vi stancate del programma e decidete di voler cancellare il symlink, 
@@ -77,13 +77,13 @@ modificabili:
 Per creare una nuova entry nel vostro diario digitate il comando:
 
 ````sh
-diario <tag1> [<tag2> <tag3> ...]
+$ diario <tag1> [<tag2> <tag3> ...]
 ````
 Per modificare l'ultima entry che avete creato, digitate il comando 
 senza parametri:
 
 ````sh
-diario
+$ diario
 ````
 
 Buon divertimento!
