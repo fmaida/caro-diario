@@ -21,7 +21,7 @@ class Diario:
         self.config.set_default("application", "nano")
         self.config.set_default("extension", "md")
         self.config.set_default("last_opened", "")
-        
+
         self.workdir = self.config.tag("path")
 
         # Crea la cartella iniziale se non esiste

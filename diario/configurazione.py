@@ -26,7 +26,6 @@ class Configurazione:
         else:
             # Il file non esiste. Crea un file vuoto
             self.config = {}
-            self.salva()
 
     def set_default(self, p_tag, p_valore_default):
         """
