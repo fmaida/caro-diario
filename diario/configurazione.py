@@ -5,6 +5,9 @@ import json
 class Configurazione:
 
     def __init__(self, p_file=None, p_percorso=None):
+        """
+        Inizializza la classe
+        """
 
         if not p_percorso:
             p_percorso = os.path.expanduser("~")
@@ -23,6 +26,11 @@ class Configurazione:
             self.salva()
 
     def set_default_se_inesistente(self, p_tag, p_valore_default):
+        """
+        Se non esiste un valore per la chiave specificata,
+        crea la chiave con il valore di default suggerito
+        """
+
         # Prova ad impostare alcuni valori di default
         try:
             if self.config[p_tag] == "":
@@ -32,7 +40,7 @@ class Configurazione:
 
     def tag(self, p_nome_tag, p_valore=None):
         """
-        Imposta o restituisce il tag richiesto
+        Imposta o restituisce la chiave richiesta
         """
 
         if p_valore:
@@ -40,5 +48,9 @@ class Configurazione:
         return self.config[p_nome_tag]
 
     def salva(self):
+        """
+        Salva il file di configurazione su disco
+        """
+
         with open(self.file, "w") as f:
             f.write(json.dumps(self.config, indent=4, sort_keys=True))

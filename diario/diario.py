@@ -27,15 +27,35 @@ class Diario:
             os.mkdir(self.workdir)
 
     def _percorso(self, *args):
+        """
+        Partendo da un'elenco di parametri restituisce il
+        percorso alla cartella costruita con la directory
+        base (workdir) e con i parametri passati.
+
+        Es: _percorso("tizio", "caio") --> ~/diario/tizio/caio
+        """
+
         percorso = self.workdir
         for elemento in args:
             percorso = os.path.join(percorso, elemento)
         return percorso
 
     def _esiste(self, *args):
+        """
+        Restituisce un booleano per indicare se una cartella
+        indicata dai parametri passati esiste
+        """
+
         return os.path.exists(self._percorso(*args))
 
     def _crea_se_inesistente(self, *args):
+        """
+        Crea una cartella indicata dai parametri se questa
+        non esiste già.
+
+        Es: _crea("tizio", "caio") --> mkdir ~/diario/tizio/caio
+        """
+
         if not self._esiste(*args):
             os.mkdir(self._percorso(*args))
             return False
@@ -43,6 +63,13 @@ class Diario:
             return True
 
     def _dict_da_data(self, p_data):
+        """
+        Partendo da un oggetto datetime restituisce
+        un dizionario contenenti i parametri
+        formattati ed organizzati proprio come servono
+        a me
+        """
+
         giorno = dict()
         giorno["anno"] = str(p_data.year)
         giorno["mese"] = str(p_data.month).zfill(2)
@@ -55,6 +82,11 @@ class Diario:
         return giorno
 
     def _apri_editor(self, p_file):
+        """
+        Apre l'editor di testo indicato nel file JSON.
+        Restituisce True se è stato impostato un editor
+        """
+
         if self.config.tag("application") != "":
             os.system(self.config.tag("application") + " " + p_file)
             return True
@@ -62,14 +94,25 @@ class Diario:
             return False
 
     def apri_ultimo_file(self):
+        """
+        Apre con l'editor di testo l'ultimo file
+        modificato dal programma
+        """
+
         return self._apri_editor(self.config.tag("last_opened"))
 
     def crea(self, p_data=None, *p_tags):
+        """
+        Crea la struttura delle cartelle necessaria
+        ed il file
+        """
 
+        # Verifica se è stato passato il parametro data
         if not p_data:
             p_data = datetime.datetime.now()
         giorno = self._dict_da_data(p_data)
 
+        # Crea il nome del file che sarà scritto su disco
         nomefile = "{}{}{}{}{}{}-{}.{}".format(giorno["anno"],
                                                giorno["mese"],
                                                giorno["giorno"],
