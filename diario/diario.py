@@ -17,11 +17,11 @@ class Diario:
         self.config = Configurazione(".diario-config.json")
 
         # Prova ad impostare alcuni valori di default
-        self.config.set_default_se_inesistente("path", os.path.join(os.path.expanduser("~"), "diario"))
-        self.config.set_default_se_inesistente("application", "nano")
-        self.config.set_default_se_inesistente("extension", "md")
-        self.config.set_default_se_inesistente("last_opened", "")
-
+        self.config.set_default("path", os.path.join(os.path.expanduser("~"), "diario"))
+        self.config.set_default("application", "nano")
+        self.config.set_default("extension", "md")
+        self.config.set_default("last_opened", "")
+        
         self.workdir = self.config.tag("path")
 
         # Crea la cartella iniziale se non esiste

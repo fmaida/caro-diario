@@ -28,7 +28,7 @@ class Configurazione:
             self.config = {}
             self.salva()
 
-    def set_default_se_inesistente(self, p_tag, p_valore_default):
+    def set_default(self, p_tag, p_valore_default):
         """
         Se non esiste un valore per la chiave specificata,
         crea la chiave con il valore di default suggerito
