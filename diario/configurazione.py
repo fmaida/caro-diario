@@ -24,6 +24,7 @@ class Configurazione:
             with open(self.file, "r") as f:
                 self.config = json.load(f)
         else:
+            # Il file non esiste. Imposta alcuni parametri di default
             self.config = {"path": os.path.join(self.basedir, "diario"),
                            "application": "nano",
                            "extension": "md",
