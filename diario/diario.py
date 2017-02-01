@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import os
 import datetime
 
@@ -93,6 +95,24 @@ class Diario:
         else:
             return False
 
+    def _crea_template(self, p_data, p_tags):
+        """
+        Crea il modello che verrà scritto su file
+        """
+        righe = list()
+        righe.append("----")
+        righe.append("Title: ")
+        righe.append("Date: {}-{}-{} {}:{}".format(p_data["anno"],
+                                                   p_data["mese"],
+                                                   p_data["giorno"],
+                                                   p_data["ora"],
+                                                   p_data["minuto"], ))
+        righe.append("Tags: {}".format(", ".join(p_tags)))
+        righe.append("----")
+        righe.append("\n")
+
+        return "\n".join(righe)
+
     def apri_ultimo_file(self):
         """
         Apre con l'editor di testo l'ultimo file
@@ -107,23 +127,13 @@ class Diario:
         ed il file
         """
 
+        # Ripulisce e sistema i tags prima di utilizzarli
+        p_tags = [tag.replace("_", "-").lower() for tag in p_tags]
+
         # Verifica se è stato passato il parametro data
         if not p_data:
             p_data = datetime.datetime.now()
         giorno = self._dict_da_data(p_data)
-
-        # Crea il nome del file che sarà scritto su disco
-        nomefile = "{}{}{}{}{}{}-{}.{}".format(giorno["anno"],
-                                               giorno["mese"],
-                                               giorno["giorno"],
-                                               giorno["ora"],
-                                               giorno["minuto"],
-                                               giorno["secondo"],
-                                               "-".join(p_tags),
-                                               self.config.tag("extension"))
-
-        # Elimina le prime due cifre dell'anno ("2017" -> "17")
-        nomefile = nomefile[2:]
 
         # Verifica se esiste la sottocartella con l'anno
         self._crea_se_inesistente(self._percorso(giorno["anno"]))
@@ -135,28 +145,37 @@ class Diario:
                                                  giorno["mese"],
                                                  giorno["giorno"]))
 
+        # Prepara il nome del file che sarà scritto su disco
+        proposto = "{}{}{}-{}".format(giorno["anno"][2:],
+                                      giorno["mese"],
+                                      giorno["giorno"],
+                                      "-".join(p_tags))
+
+        # Prova a controllare se esiste già un file con questo nome
+        nomefile = "{}.{}".format(proposto, self.config.tag("extension"))
+        if os.path.exists(nomefile):
+            # Purtroppo esiste già, ed allora
+            # prova a cambiare il nome al nuovo file
+            indice = 1
+            while True:
+                nomefile = "{}-{}.{}".format(proposto,
+                                             str(indice),
+                                             self.config.tag("extension"))
+                # Se non esiste lo usa
+                if not os.path.exists(nomefile):
+                    break
+                else:
+                    indice += 1
+
         # Ora si prepara a creare il file
         file_da_creare = self._percorso(giorno["anno"],
                                         giorno["mese"],
                                         giorno["giorno"],
                                         nomefile)
 
-        # Si prepara a creare il file
-        righe = list()
-        righe.append("----")
-        righe.append("Title: ")
-        righe.append("Date: {}-{}-{} {}:{}".format(giorno["anno"],
-                                                   giorno["mese"],
-                                                   giorno["giorno"],
-                                                   giorno["ora"],
-                                                   giorno["minuto"], ))
-        righe.append("Tags: {}".format(", ".join(p_tags)))
-        righe.append("----")
-        righe.append("\n")
-
         # Scrive il file su disco
         f = open(file_da_creare, "w")
-        f.write("\n".join(righe))
+        f.write(self._crea_template(giorno, p_tags))
         f.close()
 
         # Apre l'editor con il file
