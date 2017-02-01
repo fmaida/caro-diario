@@ -54,7 +54,7 @@ unlink /usr/local/bin/diario
 
 Dopo il primo avvio del programma, nella vostra home directory vi 
 troverete un file di configurazione in formato JSON 
-chiamato "~/.diario-config.json". Occhio che il file è nascosto.
+chiamato `~/.diario-config.json. Occhio che il file è nascosto.
 Se lo aprirete con un'editor di testo vedrete questi parametri, 
 modificabili:
 
@@ -63,18 +63,14 @@ modificabili:
     "application": "nano",
     "extension": "md",
     "last_opened": "<percorso all'ultimo file aperto dal programma>",
-    "path": "~/Diario"
+    "path": "~/diario"
 }
 ~~~~
 
-* il parametro "application" consente di indicare l'editor di testo da 
-lanciare per modificare l'entry
-* il parametro "extension" indica l'estensione che dovrà avere il file 
-creato
-* il parametro "last_opened" viene gestito internamente e ricorda al 
-programma il percorso all'ultimo file creato
-* il percorso "path" consente di indicare il percorso nel quale verrà 
-creata la struttura con i files e le directories
+* il parametro "application" consente di indicare l'editor di testo da lanciare per modificare l'entry
+* il parametro "extension" indica l'estensione che dovrà avere il file creato
+* il parametro "last_opened" viene gestito internamente e ricorda al programma il percorso all'ultimo file creato
+* il percorso "path" consente di indicare il percorso nel quale verrà creata la struttura con i files e le directories
 
 ## Utilizzo da terminale
 
