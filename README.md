@@ -71,8 +71,8 @@ modificabili:
 * il parametro `last_opened` viene gestito internamente e ricorda al programma il percorso all'ultimo file creato
 * il percorso `path` consente di indicare il percorso nel quale verrà 
 creata la struttura con i files e le directories. Io ad esempio lascio 
-creare l'intera struttura di cartelle all'interno di Dropbox, in modo da 
-avere anche il backup automatico di tutto quello che ci scrivo dentro.
+creare l'intera struttura di file e sottocartelle all'interno di una 
+cartella su Dropbox, in modo da avere anche il backup automatico di tutto quello che ci scrivo dentro.
 
 ## Utilizzo da terminale
 
