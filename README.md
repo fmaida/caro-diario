@@ -104,7 +104,8 @@ Lorem ipsum dolor sit amet...
 
 ````
 
-Se pensate che per il formato del file mi sia ispirato a Jekyll, beh... 
-avete indovinato ^_____^ ( <http://www.jekyllrb.com> )
+Se pensate che per il formato dei file mi sia ispirato a Jekyll, beh... 
+avete indovinato ^_____^
+( <http://www.jekyllrb.com> )
 
 Buon divertimento!
