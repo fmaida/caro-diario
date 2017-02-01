@@ -100,7 +100,7 @@ Ad esempio:
 ----
 Title: Il titolo del mio appunto
 Date: 2017-02-01 22:36
-Tags: tag_uno, tag_due, tag_tre
+Tags: tag-uno, tag-due, tag-tre
 ----
 
 Lorem ipsum dolor sit amet...
