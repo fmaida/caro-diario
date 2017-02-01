@@ -24,11 +24,8 @@ class Configurazione:
             with open(self.file, "r") as f:
                 self.config = json.load(f)
         else:
-            # Il file non esiste. Imposta alcuni parametri di default
-            self.config = {"path": os.path.join(self.basedir, "diario"),
-                           "application": "nano",
-                           "extension": "md",
-                           "last_opened": ""}
+            # Il file non esiste. Crea un file vuoto
+            self.config = {}
             self.salva()
 
     def set_default_se_inesistente(self, p_tag, p_valore_default):
