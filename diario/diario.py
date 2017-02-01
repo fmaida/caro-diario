@@ -129,7 +129,8 @@ class Diario:
 
         # Ripulisce e sistema i tags prima di utilizzarli
         p_tags = [tag.replace("_", "-").lower() for tag in p_tags]
-
+        p_tags.sort()
+        
         # Verifica se è stato passato il parametro data
         if not p_data:
             p_data = datetime.datetime.now()
