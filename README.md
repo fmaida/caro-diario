@@ -12,7 +12,6 @@ magari aggiungendo dei tag per
 poterli ritrovare facilmente in seguito.
 Questo programma serve proprio a questo scopo.
 
-
 ## Disclaimer
 
 A me il programma funziona senza dare problemi. Se però nel vostro caso 
@@ -85,5 +84,27 @@ senza parametri:
 ````sh
 $ diario
 ````
+
+## File generati dal programma
+
+Il programma genera files di questo tipo, con un front-matter iniziale 
+in formato YAML e successivamente del testo che può essere formattato a 
+vostro piacimento (a me piace scriverci dentro utilizzando la notazione 
+markdown).
+Ad esempio:
+
+````yaml
+----
+Title: Il titolo del mio appunto
+Date: 2017-02-01 22:36
+Tags: tag_uno, tag_due, tag_tre
+----
+
+Lorem ipsum dolor sit amet...
+
+````
+
+Se pensate che per il formato del file mi sia ispirato a Jekyll, beh... 
+avete indovinato ^_____^ ( <http://www.jekyllrb.com> )
 
 Buon divertimento!
