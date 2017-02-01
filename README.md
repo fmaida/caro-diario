@@ -47,7 +47,7 @@ Se vi stancate del programma e decidete di voler cancellare il symlink,
 il comando da terminale per cancellarlo è:
 
 ````sh
-unlink /usr/local/bin/diario
+$ unlink /usr/local/bin/diario
 ````
 
 ## Configurazione
