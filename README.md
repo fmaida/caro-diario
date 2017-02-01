@@ -69,7 +69,10 @@ modificabili:
 * il parametro "application" consente di indicare l'editor di testo da lanciare per modificare l'entry
 * il parametro "extension" indica l'estensione che dovrà avere il file creato
 * il parametro "last_opened" viene gestito internamente e ricorda al programma il percorso all'ultimo file creato
-* il percorso "path" consente di indicare il percorso nel quale verrà creata la struttura con i files e le directories
+* il percorso "path" consente di indicare il percorso nel quale verrà 
+creata la struttura con i files e le directories. Io ad esempio lascio 
+creare l'intera struttura di cartelle all'interno di Dropbox, in modo da 
+avere anche il backup automatico di tutto quello che ci scrivo dentro.
 
 ## Utilizzo da terminale
 
